@@ -9,7 +9,6 @@
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/who_won"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +34,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/timestamp"
         android:textSize="12sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvResult" />
@@ -47,8 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvVersus"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTimestamp"
-        app:srcCompat="@drawable/paper" />
+        app:layout_constraintTop_toBottomOf="@id/tvTimestamp"/>
 
 
     <TextView
@@ -69,8 +68,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvVersus"
-        app:layout_constraintTop_toBottomOf="@id/tvTimestamp"
-        app:srcCompat="@drawable/paper" />
+        app:layout_constraintTop_toBottomOf="@id/tvTimestamp" />
 
     <TextView
         android:id="@+id/tvPlayer"
