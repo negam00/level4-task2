@@ -1,7 +1,8 @@
-package com.example.rockpaperscissors
+package com.example.rockpaperscissors.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rockpaperscissors.R
 
 class MainActivity : AppCompatActivity() {
 
