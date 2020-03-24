@@ -7,9 +7,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rockpaperscissors.R
 import com.example.rockpaperscissors.database.GameRepository
-import com.example.rockpaperscissors.model.Enums
+import com.example.rockpaperscissors.model.Strings
 import com.example.rockpaperscissors.model.Game
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.history_item.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,6 +21,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private val mainScope = CoroutineScope((Dispatchers.Main))
     private lateinit var gameRepository: GameRepository
+    private val game = arrayListOf<Game>()
+    private val gameAdapter = GameAdapter(game)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +33,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-
         ibRock.setOnClickListener { playGame(0) }
         ibPaper.setOnClickListener { playGame(1) }
         ibScissors.setOnClickListener { playGame(2) }
-
     }
 
     /**
@@ -51,7 +52,16 @@ class MainActivity : AppCompatActivity() {
             date = Calendar.getInstance().time.toString()
         )
 
+        updateState(playedGame)
         saveGame(playedGame)
+    }
+
+    private fun updateState(game: Game) {
+        tvResult.text = game.result
+        tvTimestamp.text = game.date
+        tvTimestamp.text = ""
+        ivComputer.setImageResource(Game.GAME_RES_DRAWABLE_IDS[game.computerPick])
+        ivPlayer.setImageResource(Game.GAME_RES_DRAWABLE_IDS[game.playerPick])
     }
 
     /**
@@ -70,17 +80,17 @@ class MainActivity : AppCompatActivity() {
      */
     private fun determinateWinner(playerPick: Int, computerPick: Int): String {
         // User played a tie
-        if (playerPick == computerPick)  {
-            return Enums.DRAW.name
+        if (playerPick == computerPick) {
+            return Strings.DRAW.state
         }
         // User wins as rock beats scissors, paper beats rock, scissors beat paper
         else if (
             playerPick == 0 && computerPick == 2 ||
             playerPick == 1 && computerPick == 0 ||
             playerPick == 2 && computerPick == 2
-        ) return Enums.WON.name
+        ) return Strings.WON.state
 
-        return Enums.LOST.name
+        return Strings.LOST.state
     }
 
 
@@ -91,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_delete_history -> {
+            R.id.action_show_history -> {
                 startHistoryActivity()
                 true
             }

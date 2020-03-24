@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,10 +32,11 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription"
-        app:srcCompat="@color/colorPrimary"/>
+        app:srcCompat="@color/item_colour"/>
 
     <include
         layout="@layout/history_item"
@@ -51,7 +52,7 @@
         android:layout_height="75dp"
         android:src="@drawable/rock"
         android:scaleType="fitCenter"
-        android:background="@color/colorPrimary"
+        android:background="@color/item_colour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/ibPaper"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +64,7 @@
         android:layout_height="75dp"
         android:src="@drawable/paper"
         android:scaleType="fitCenter"
-        android:background="@color/colorPrimary"
+        android:background="@color/item_colour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/ibScissors"
         app:layout_constraintStart_toEndOf="@id/ibRock"
@@ -75,7 +76,7 @@
         android:layout_width="120dp"
         android:layout_height="75dp"
         android:scaleType="fitCenter"
-        android:background="@color/colorPrimary"
+        android:background="@color/item_colour"
         android:src="@drawable/scissors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

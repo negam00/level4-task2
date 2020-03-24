@@ -31,7 +31,7 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
     /**
      * Returns the size of the list
      */
-    override fun getItemCount(): Int =  games.size
+    override fun getItemCount(): Int = games.size
 
 
     /**

@@ -65,7 +65,7 @@ class HistoryActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_delete_history -> {
+            R.id.action_delete_game_history -> {
                 deleteHistory()
                 true
             }

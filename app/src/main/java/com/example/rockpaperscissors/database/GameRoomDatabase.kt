@@ -26,7 +26,8 @@ abstract class GameRoomDatabase : RoomDatabase() {
                             Room.databaseBuilder(
                                 context.applicationContext,
                                 GameRoomDatabase::class.java,
-                                DATABASE_NAME).build()
+                                DATABASE_NAME
+                            ).build()
                     }
                 }
             }
